@@ -8,12 +8,12 @@ import (
 func main() {
 
 	s := si.NewSearchIndex(3)
-	s.add("hello")
-	s.add("hi world")
-	s.add("hello world")
+	s.Add("hello")
+	s.Add("hi world")
+	s.Add("hello world")
 
 	var prompt = "rld"
-	result := s.search(prompt)
+	result := s.Search(prompt)
 
 	fmt.Printf("search <%s>\n", prompt)
 	for i := 0; i < len(result); i++ {

@@ -9,11 +9,11 @@ func NewStore() *Store {
 		data: make([]string, 0),
 	}
 }
-func (store *Store) save(s string) uint {
+func (store *Store) Save(s string) uint {
 	store.data = append(store.data, s)
 	return uint(len(store.data) - 1)
 }
 
-func (store *Store) load(id uint) string {
+func (store *Store) Load(id uint) string {
 	return store.data[id]
 }

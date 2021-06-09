@@ -11,17 +11,17 @@ func NewSearchIndex(size int) *SearchIndex {
 		rindex: NewRIndex(size),
 	}
 }
-func (si *SearchIndex) add(s string) bool {
-	id := si.store.save(s)
-	si.rindex.add(id, s)
+func (si *SearchIndex) Add(s string) bool {
+	id := si.store.Save(s)
+	si.rindex.Add(id, s)
 	return true
 }
 
-func (si *SearchIndex) search(s string) []string {
+func (si *SearchIndex) Search(s string) []string {
 	docs := []string{}
-	ids := si.rindex.search(s)
+	ids := si.rindex.Search(s)
 	for i := 0; i < len(ids); i++ {
-		docs = append(docs, si.store.load(ids[i]))
+		docs = append(docs, si.store.Load(ids[i]))
 	}
 	return docs
 }

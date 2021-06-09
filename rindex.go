@@ -12,7 +12,7 @@ func NewRIndex(size int) *RIndex {
 	}
 }
 
-func (ri *RIndex) add(id uint, s string) {
+func (ri *RIndex) Add(id uint, s string) {
 	for i := 0; i <= len(s)-ri.size; i++ {
 		tok := s[i : i+ri.size]
 		if ri.data[tok] == nil {
@@ -23,7 +23,7 @@ func (ri *RIndex) add(id uint, s string) {
 	}
 }
 
-func (ri *RIndex) search(s string) []uint {
+func (ri *RIndex) Search(s string) []uint {
 	var result *BitSet = nil
 
 	for i := 0; i <= len(s)-ri.size; i++ {
