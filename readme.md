@@ -5,7 +5,8 @@ Search Index
 # Demo
 
 ## Test
-```
+
+```golang
 package main
 
 import (
@@ -33,7 +34,8 @@ func main() {
 ```
 
 ## Result
-```terminal
+
+```sh
 search <rld>
 <hi world>
 <hello world>
