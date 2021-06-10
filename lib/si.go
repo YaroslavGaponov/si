@@ -1,11 +1,11 @@
 package si
 
 type SearchIndex struct {
-	store  *Store
+	store  Store
 	rindex *RIndex
 }
 
-func NewSearchIndex(size int) *SearchIndex {
+func New(size int) *SearchIndex {
 	return &SearchIndex{
 		store:  NewStore(),
 		rindex: NewRIndex(size),

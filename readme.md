@@ -16,12 +16,12 @@ import (
 
 func main() {
 
-	s := si.NewSearchIndex(3)
+	s := si.New(3)
 	s.Add("hello")
 	s.Add("hi world")
 	s.Add("hello world")
 
-	var prompt = "rld"
+	var prompt = "orld"
 	result := s.Search(prompt)
 
 	fmt.Printf("search <%s>\n", prompt)
@@ -36,7 +36,7 @@ func main() {
 ## Result
 
 ```sh
-search <rld>
+search <orld>
 <hi world>
 <hello world>
 total 2
