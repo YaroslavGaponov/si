@@ -10,7 +10,7 @@ Search Index
 package main
 
 import (
-	"github.com/YaroslavGaponov/si"
+	"github.com/YaroslavGaponov/si/lib"
 	"fmt"
 )
 
