@@ -1,3 +1,3 @@
-module github.com/YaroslavGaponov/si
+module example
 
 go 1.16
