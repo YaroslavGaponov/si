@@ -4,6 +4,8 @@ Search Index
 
 # Demo
 
+Golang playground [here](https://play.golang.org/p/WxYsnoe-lXm)
+
 ## Test
 
 ```golang
