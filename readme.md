@@ -22,7 +22,7 @@ func main() {
 	s.Add("hello world")
 
 	fmt.Println(
-		s.Search([]string{"rl", "ll"}),
+		s.Search([]string{"orl", "ll"}),
 	)
 
 }
