@@ -10,18 +10,18 @@ Search Index
 package main
 
 import (
-	"github.com/YaroslavGaponov/si/lib"
 	"fmt"
+	"github.com/YaroslavGaponov/si/lib"
 )
 
 func main() {
 
-	s := si.New(3)
+	s := si.New(2)
 	s.Add("hello")
 	s.Add("hi world")
 	s.Add("hello world")
 
-	var prompt = "orld"
+	var prompt = []string{"rl", "ll"}
 	result := s.Search(prompt)
 
 	fmt.Printf("search <%s>\n", prompt)
@@ -36,8 +36,7 @@ func main() {
 ## Result
 
 ```sh
-search <orld>
-<hi world>
+search <[rl ll]>
 <hello world>
-total 2
+total 1
 ```

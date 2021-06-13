@@ -41,15 +41,13 @@ func (ri *RIndex) searchOne(s string) *BitSet {
 }
 
 func (ri *RIndex) Search(s []string) []uint {
-	var result *BitSet
-
+	result := NewBitSet()
 	for i, word := range s {
 		if i == 0 {
-			result = ri.searchOne(word)
+			result.OR(ri.searchOne(word))
 		} else {
 			result.AND(ri.searchOne(word))
 		}
 	}
-
 	return result.ToArray()
 }

@@ -51,12 +51,21 @@ func (bs *BitSet) ToArray() []uint {
 }
 
 func (bs *BitSet) AND(bs2 *BitSet) *BitSet {
+	for base, _ := range bs.data {
+		_, found := bs2.data[base]
+		if !found {
+			delete(bs.data, base)
+		}
+	}
 	for base, offset := range bs2.data {
-		n, found := bs.data[base]
+		_, found := bs.data[base]
 		if !found {
 			delete(bs.data, base)
 		} else {
-			bs.data[base] = n & offset
+			bs.data[base] &= offset
+			if bs.data[base] == 0 {
+				delete(bs.data, base)
+			}
 		}
 	}
 	return bs
@@ -64,7 +73,12 @@ func (bs *BitSet) AND(bs2 *BitSet) *BitSet {
 
 func (bs *BitSet) OR(bs2 *BitSet) *BitSet {
 	for base, offset := range bs2.data {
-		bs.data[base] |= offset
+		n, found := bs.data[base]
+		if !found {
+			bs.data[base] = offset
+		} else {
+			bs.data[base] = n | offset
+		}
 	}
 	return bs
 }

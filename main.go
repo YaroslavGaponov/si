@@ -7,12 +7,12 @@ import (
 
 func main() {
 
-	s := si.New(3)
+	s := si.New(2)
 	s.Add("hello")
 	s.Add("hi world")
 	s.Add("hello world")
 
-	var prompt = []string{"orld", "lo"}
+	var prompt = []string{"rl", "ll"}
 	result := s.Search(prompt)
 
 	fmt.Printf("search <%s>\n", prompt)
