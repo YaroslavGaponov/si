@@ -4,7 +4,7 @@ Search Index
 
 # Demo
 
-Golang playground [here](https://play.golang.org/p/WxYsnoe-lXm)
+Golang playground [here](https://play.golang.org/p/ldQpqNiTdB1)
 
 ## Test
 
@@ -22,10 +22,11 @@ func main() {
 	s.Add("hello")
 	s.Add("hi world")
 	s.Add("hello world")
+	s.Add("hallelujah world")
 
-	fmt.Println(
-		s.Search([]string{"orl", "ll"}),
-	)
+	for _, result := range s.Search([]string{"rl", "ll"}) {
+		fmt.Println(result)
+	}
 
 }
 ```
@@ -33,5 +34,6 @@ func main() {
 ## Result
 
 ```sh
-[hello world]
+hello world
+hallelujah world
 ```

@@ -11,9 +11,10 @@ func main() {
 	s.Add("hello")
 	s.Add("hi world")
 	s.Add("hello world")
+	s.Add("hallelujah world")
 
-	fmt.Println(
-		s.Search([]string{"orl", "ll"}),
-	)
+	for _, result := range s.Search([]string{"rl", "ll"}) {
+		fmt.Println(result)
+	}
 
 }
