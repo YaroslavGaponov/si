@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/YaroslavGaponov/si/lib"
 	"fmt"
+	"github.com/YaroslavGaponov/si/lib"
 )
 
 func main() {
@@ -12,7 +12,7 @@ func main() {
 	s.Add("hi world")
 	s.Add("hello world")
 
-	var prompt = "orld"
+	var prompt = []string{"orld", "lo"}
 	result := s.Search(prompt)
 
 	fmt.Printf("search <%s>\n", prompt)

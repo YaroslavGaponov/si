@@ -23,25 +23,33 @@ func (ri *RIndex) Add(id uint, s string) {
 	}
 }
 
-func (ri *RIndex) Search(s string) []uint {
-	var result *BitSet = nil
-
+func (ri *RIndex) searchOne(s string) *BitSet {
+	result := NewBitSet()
 	for i := 0; i <= len(s)-ri.size; i++ {
 		tok := s[i : i+ri.size]
 		if ri.data[tok] == nil {
 			return nil
 		}
-		if result == nil {
-			result = NewBitSet().OR(ri.data[tok])
+		if i == 0 {
+			result.OR(ri.data[tok])
 		} else {
 			result.AND(ri.data[tok])
 		}
 
 	}
+	return result
+}
 
-	if result == nil {
-		return []uint{}
-	} else {
-		return result.ToArray()
+func (ri *RIndex) Search(s []string) []uint {
+	var result *BitSet
+
+	for i, word := range s {
+		if i == 0 {
+			result = ri.searchOne(word)
+		} else {
+			result.AND(ri.searchOne(word))
+		}
 	}
+
+	return result.ToArray()
 }
